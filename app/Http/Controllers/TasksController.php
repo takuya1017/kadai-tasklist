@@ -53,7 +53,7 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        $task = tasks::findOrFail($id);
+        $task = Task::findOrFail($id);
         
         return view('tasks.show',['task'=>$task]);
     }
@@ -94,7 +94,7 @@ class TasksController extends Controller
     public function destroy($id)
     {
         $task = Task::findOrFail($id);
-        $task->dalete();
+        $task->delete();
         return redirect('/');
     }
 }
